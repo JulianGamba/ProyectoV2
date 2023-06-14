@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// });
+
+// Route::get('/login', function () {
+//     return view('login');
+// });
+
+// Route::get('/register', function () {
+//     return view('register');
+// });
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -33,17 +45,21 @@ Route::get('/landing', function () {
     return view('landing');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
+// Rutas del modulo de campeonatos
+
+// Route::get('/vercampeonato', function () {
+//     return view('vercampeonato');
 // });
 
-// Route::get('/login', function () {
-//     return view('login');
+Route::get('/crearcampeonato', function () {
+    return view('crearcampeonato');
+});
+
+// Route::get('/editarcampeonato/{id_campeonato}', function () {
+//     return view('editarcampeonato');
 // });
 
-// Route::get('/register', function () {
-//     return view('register');
-// });
+// Rutas del controlador de login, register y logout, con rutas de login, register y dashboard 
 
 use App\Http\Controllers\Auth\LoginRegisterController;
 
@@ -55,3 +71,23 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
     Route::get('/dashboard', [LoginRegisterController::class, 'dashboard'])->name('dashboard');
     Route::post('/logout', [LoginRegisterController::class, 'logout'])->name('logout');
 });
+
+// Rutas del controlador del CRUD
+// Ruta del Read para mostrar información del campeonato
+Route::get('/vercampeonato', [App\Http\Controllers\CrudController::class, 'index'])->name('crud.index');
+// Ruta del crear campeonato
+
+// Route::get('/crearcampeonato', [App\Http\Controllers\CrudController::class, 'create'])->name('crud.create');
+
+// Ruta del Create para registrar
+Route::post('/crearcampeonato', [App\Http\Controllers\CrudController::class, 'create'])->name('crud.create');
+
+// Ruta del editar para modificar
+// Route::post('/actualizarcampeonato', [App\Http\Controllers\CrudController::class, 'update'])->name('crud.update');
+
+// Route::post('/editarcampeonato', [App\Http\Controllers\CrudController::class, 'update'])->name('crud.update');
+
+// Route::get('/editarcampeonato/{id_campeonato}', [App\Http\Controllers\CrudController::class, 'edit'])->name('crud.edit');
+
+Route::get('/campeonato/{id_campeonato}/edit', [App\Http\Controllers\CrudController::class, 'edit'])->name('campeonato.edit');
+Route::put('/campeonato/{id_campeonato}', [App\Http\Controllers\CrudController::class, 'update'])->name('campeonato.update');

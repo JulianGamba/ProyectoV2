@@ -44,7 +44,7 @@
                   </h2>
                   <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                     <a href="{{url('vercampeonato')}}"><div class="accordion-body">Crear campeonato</div></a>
-                    <a href="{{url('crearcampeonato')}}"><div class="accordion-body">Crear programación</div></a>
+                    <a ><div class="accordion-body">Crear programación</div></a>
                     <div class="accordion-body">Agregar equipo</div>
                     <div class="accordion-body">Crear partido</div>
                     </div>
@@ -82,38 +82,56 @@
               </form>
               
               <button type="button" class="btn btn-logout btn-outline-primary" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</button>
-              
-                {{-- <a href="../Landing/landing-page.html">
-                <button type="button" class="btn btn-logout btn-outline-primary" disabled>Salir</button>
-              </a>
-
-              <a class="navbar-link" href="{{ route('logout') }}"
-           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-           Logout
-        </a>
-        
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form> --}}
               </div>
             </div>
         </div>
-        <div class="container ">
-          <div class="row">
-            <div class="col-1"></div>
-            <div class="col-10">
-          <h1>Bienvenido querido administrador</h1>
-          <p>En esta sección podrás encontrar toda la información respecto a los próximos entrenamientos a realizar, los campeonatos, así como editarlos y los planes de acondicionamiento</p>
-          <h2>Campeonatos</h2>
-          <p>En la sección de campeonatos podrá gestionar la creación de campeonatos, agregar los distintos equipos inscritos en el campeonato y generar las planillas de partidos al igual que sus resultados</p>
-          <h2>Entrenamientos</h2>
-          <p>En la sección de entrenamientos podrá publicar los diferentes entrenamientos programados con toda su información y registrar las asistencias y novedades de los entrenamientos</p>
-          <h2>Acondicionamiento físico</h2>
-          <p>En la sección de acondicionamiento físico podrá ver los planes asignados a los jugadores de la escuela así como ver el cumplimiento de estos mismos por parte de los desarrolladores</p>
-        </div>
-        <div class="col-1"></div>
-      </div>
-    </div>
+
+        <div class="container">
+            <h1 class="text-center">Crear Campeonato</h1>
+            <form action="{{route("crud.create")}}" method="post">
+              @csrf
+              {{-- <div class="mb-3">
+                <label for="nombreCampeonato" class="form-label">Id del campeonato</label>
+                <input type="number" class="form-control" id="id_campeonato" name="id_campeonato" required>
+              </div> --}}
+              <div class="mb-3">
+                <label for="nombreCampeonato" class="form-label">Nombre del Campeonato</label>
+                <input type="text" class="form-control" id="nombreCampeonato" name="nombre" required>
+              </div>
+              <div class="mb-3">
+                <label for="categoria" class="form-label">Categoría</label>
+                <input type="text" class="form-control" id="categoria" name="categoria" required>
+              </div>
+              <div class="mb-3">
+                <label for="modo" class="form-label">Modo</label>
+                <input type="text" class="form-control" id="modo" name="modo" required>
+              </div>
+              <div class="mb-3">
+                <label for="direccion" class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" required>
+              </div>
+              <div class="mb-3">
+                <label for="precioInscripcion" class="form-label">Precio de Inscripción</label>
+                <input type="number" class="form-control" id="precioInscripcion" name="precio_inscripcion" required>
+              </div>
+              <div class="mb-3">
+                <label for="valorPremiacion" class="form-label">Valor de Premiación</label>
+                <input type="number" class="form-control" id="valorPremiacion" name="valor_premiacion" required>
+              </div>
+              <div class="mb-3">
+                <label for="cantidadEquipos" class="form-label">Cantidad de Equipos</label>
+                <input type="number" class="form-control" id="cantidadEquipos" name="cantidad_equipos" required>
+              </div>
+              <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" required></textarea>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Crear</button>
+              </div>
+            </form>
+          </div>
+
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>

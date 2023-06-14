@@ -82,38 +82,40 @@
               </form>
               
               <button type="button" class="btn btn-logout btn-outline-primary" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</button>
-              
-                {{-- <a href="../Landing/landing-page.html">
-                <button type="button" class="btn btn-logout btn-outline-primary" disabled>Salir</button>
-              </a>
-
-              <a class="navbar-link" href="{{ route('logout') }}"
-           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-           Logout
-        </a>
-        
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form> --}}
               </div>
             </div>
         </div>
-        <div class="container ">
-          <div class="row">
-            <div class="col-1"></div>
-            <div class="col-10">
-          <h1>Bienvenido querido administrador</h1>
-          <p>En esta sección podrás encontrar toda la información respecto a los próximos entrenamientos a realizar, los campeonatos, así como editarlos y los planes de acondicionamiento</p>
-          <h2>Campeonatos</h2>
-          <p>En la sección de campeonatos podrá gestionar la creación de campeonatos, agregar los distintos equipos inscritos en el campeonato y generar las planillas de partidos al igual que sus resultados</p>
-          <h2>Entrenamientos</h2>
-          <p>En la sección de entrenamientos podrá publicar los diferentes entrenamientos programados con toda su información y registrar las asistencias y novedades de los entrenamientos</p>
-          <h2>Acondicionamiento físico</h2>
-          <p>En la sección de acondicionamiento físico podrá ver los planes asignados a los jugadores de la escuela así como ver el cumplimiento de estos mismos por parte de los desarrolladores</p>
-        </div>
-        <div class="col-1"></div>
+
+        
+@foreach ($campeonato as $item)
+    <div class="tabla-principal container mt-3">
+      <div class="row-tabla row ">
+        <div class="col-tabla col-md-6 text-center align-items-center">{{$item->nombre}}</div>
       </div>
-    </div>
+  <div class="row row-tabla">
+    <div class="col-tabla col-md-3 text-center align-items-center">{{$item->modo}}</div>
+    <div class="col-tabla col-md-3 text-center align-items-center">{{$item->categoria}}</div>
+  </div>
+  <div class="row row-tabla">
+    <div class="col-tabla col-md-3 text-center align-items-center">{{$item->direccion}}</div>
+    <div class="col-tabla col-md-3 text-center align-items-center">{{$item->cantidad_equipos}}</div>
+  </div>
+<div class="row row-tabla">
+<div class="col-tabla col-md-3 text-center align-items-center">{{$item->precio_inscripcion}}</div>
+<div class="col-tabla col-md-3 text-center align-items-center">{{$item->valor_premiacion}}</div>
+</div>
+<div class="row-tabla row">
+<div class="col-tabla col-md-6 text-center align-items-center">{{$item->descripcion}}</div>
+</div>
+<div class="row row-tabla">
+  <div class="col-tabla col-2 text-center align-items-center"><a href="{{url('crearcampeonato')}}"><button type="button" class="btn btn-logout btn-outline-primary">Crear</button></a></div>
+
+  <div class="col-tabla col-2 text-center align-items-center"><a href="{{ route('campeonato.edit', ['id_campeonato' => $item->id_campeonato]) }}"><button type="button" class="btn btn-logout btn-outline-primary">Editar</button></a></div>
+
+  <div class="col-tabla col-2 text-center align-items-center"><a href="{{url('eliminarcampeonato')}}"><button type="button" class="btn btn-logout btn-outline-primary">Eliminar</button></a></div>
+</div>
+</div>
+@endforeach
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
