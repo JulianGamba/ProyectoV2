@@ -9,26 +9,6 @@ use App\Models\Campeonato;
 
 class CrudController extends Controller
 {
-    // public function index(){
-    //     $datos=DB::select("select * from  campeonatos");
-    //     return view('vercampeonato')->with("datos", $datos);
-    // }
-
-    // public function create(Request $request){
-    //     $sql=DB::insert("insert into campeonatos(nombre, categoria, modo, direccion, precio_inscripcion, valor_premiacion, cantidad_equipos, descripcion)values(?,?,?,?,?,?,?,?)" , [
-    //         // $request->id_campeonato,
-    //         $request->nombre,
-    //         $request->categoria,
-    //         $request->modo,
-    //         $request->direccion,
-    //         $request->precio_inscripcion,
-    //         $request->valor_premiacion,
-    //         $request->cantidad_equipos,
-    //         $request->descripcion
-    //     ]);
-    //     return redirect()->route('vercampeonato');
-    // }
-
     public function index(){
         $campeonato = Campeonato::all();
         return view('vercampeonato')->with("campeonato", $campeonato);
@@ -46,23 +26,8 @@ class CrudController extends Controller
         $campeonato->descripcion = $request->descripcion;
         $campeonato->save();
         
-        return redirect()->route('vercampeonato');
+        return redirect()->route('campeonato.index');
     }
-
-
-    // public function update(Request $request, $id_campeonato) {
-    //     $sql=DB::update("update campeonatos set nombre=?, categoria=?, modo=?, direccion=?, precio_inscripcion=?, valor_premiacion=?, cantidad_equipos=?, descripcion=? where id_campeonato" , [
-    //         $request->nombre,
-    //         $request->categoria,
-    //         $request->modo,
-    //         $request->direccion,
-    //         $request->precio_inscripcion,
-    //         $request->valor_premiacion,
-    //         $request->cantidad_equipos,
-    //         $request->descripcion
-    //     ]);
-    //     return redirect()->route('vercampeonato');
-    // }
 
     public function update(Request $request, $id_campeonato)
     {
@@ -79,7 +44,7 @@ class CrudController extends Controller
     
         $item->save();
     
-        return redirect()->route('vercampeonato')->with('success', 'El campeonato se ha actualizado correctamente.');
+        return redirect()->route('campeonato.index')->with('success', 'El campeonato se ha actualizado correctamente.');
     }
     
 
@@ -87,6 +52,13 @@ class CrudController extends Controller
         $campeonato = Campeonato::find($id_campeonato);
         return view('editarcampeonato', ['campeonato' => $campeonato]);
     }
+
+    public function delete($id_campeonato){
+        $campeonato = Campeonato::find($id_campeonato);
+        $campeonato->delete();
+        return redirect()->route('campeonato.index');
+    }
+
 
 }
 

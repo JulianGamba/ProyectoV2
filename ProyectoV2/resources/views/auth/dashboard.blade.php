@@ -43,10 +43,10 @@
                     </button>
                   </h2>
                   <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                    <a href="{{url('vercampeonato')}}"><div class="accordion-body">Crear campeonato</div></a>
-                    <a href="{{url('crearcampeonato')}}"><div class="accordion-body">Crear programación</div></a>
-                    <div class="accordion-body">Agregar equipo</div>
-                    <div class="accordion-body">Crear partido</div>
+                    <a href="{{url('vercampeonato')}}"><div class="accordion-body">Campeonatos</div></a>
+                    <a href="{{url('verprogramacion')}}"><div class="accordion-body">Programación</div></a>
+                    <a href="{{url('verequipo')}}"><div class="accordion-body">Equipos</div></a>
+                    <a href="{{url('verpartido')}}"><div class="accordion-body">Partidos</div></a>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -69,10 +69,9 @@
                     </button>
                   </h2>
                   <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                    <a href="../campeonatos/crearcampeonato.html"><div class="accordion-body">Crear campeonato</div></a>
-                    <div class="accordion-body">Crear programación</div>
-                    <div class="accordion-body">Agregar equipo</div>
-                    <div class="accordion-body">Crear partido</div>
+                    <a href="{{url('listaperfiles')}}"><div class="accordion-body">Perfiles</div></a>
+                    <a href="{{url('vertest')}}"><div class="accordion-body">Test</div></a>
+                    <a href="{{url('verplanacondicionamiento')}}"><div class="accordion-body">Plan de acondicionamiento</div></a>
                   </div>
                 </div>
               </div>
@@ -82,22 +81,11 @@
               </form>
               
               <button type="button" class="btn btn-logout btn-outline-primary" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</button>
-              
-                {{-- <a href="../Landing/landing-page.html">
-                <button type="button" class="btn btn-logout btn-outline-primary" disabled>Salir</button>
-              </a>
-
-              <a class="navbar-link" href="{{ route('logout') }}"
-           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-           Logout
-        </a>
-        
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form> --}}
               </div>
             </div>
         </div>
+
+        
         <div class="container ">
           <div class="row">
             <div class="col-1"></div>

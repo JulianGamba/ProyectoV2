@@ -26,68 +26,70 @@
         </nav>
     </div>
   <!-- Html de la side bar -->
-      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Servicios</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body ">
-            <div>
-              Escoja alguno de los servicios de la empresa
-            </div>
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="btn-sidebaraccordion-item">
-                  <h2 class="accordion-header">
-                    <button class="fondo-claro  btn-sidebar accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                      Campeonatos
-                    </button>
-                  </h2>
-                  <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                    <a href="{{url('vercampeonato')}}"><div class="accordion-body">Crear campeonato</div></a>
-                    <a href="{{url('crearcampeonato')}}"><div class="accordion-body">Crear programación</div></a>
-                    <div class="accordion-body">Agregar equipo</div>
-                    <div class="accordion-body">Crear partido</div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="fondo-claro accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                      Entrenamientos
-                    </button>
-                  </h2>
-                  <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                    <a href="../campeonatos/crearcampeonato.html"><div class="accordion-body">Crear campeonato</div></a>
-                    <div class="accordion-body">Crear programación</div>
-                    <div class="accordion-body">Agregar equipo</div>
-                    <div class="accordion-body">Crear partido</div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="fondo-claro accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                      Acondicionamiento fisico
-                    </button>
-                  </h2>
-                  <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                    <a href="../campeonatos/crearcampeonato.html"><div class="accordion-body">Crear campeonato</div></a>
-                    <div class="accordion-body">Crear programación</div>
-                    <div class="accordion-body">Agregar equipo</div>
-                    <div class="accordion-body">Crear partido</div>
-                  </div>
-                </div>
-              </div>
-              <div class="logout text-center">
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
-              </form>
-              
-              <button type="button" class="btn btn-logout btn-outline-primary" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</button>
-              </div>
-            </div>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Servicios</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body ">
+        <div>
+          Escoja alguno de los servicios de la empresa
         </div>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="btn-sidebaraccordion-item">
+              <h2 class="accordion-header">
+                <button class="fondo-claro  btn-sidebar accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  Campeonatos
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <a href="{{url('vercampeonato')}}"><div class="accordion-body">Campeonatos</div></a>
+                <a href="{{url('verprogramacion')}}"><div class="accordion-body">Programación</div></a>
+                <a href="{{url('verequipo')}}"><div class="accordion-body">Equipos</div></a>
+                <a href="{{url('verpartido')}}"><div class="accordion-body">Partidos</div></a>
+                </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="fondo-claro accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  Entrenamientos
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <a href="../campeonatos/crearcampeonato.html"><div class="accordion-body">Crear campeonato</div></a>
+                <div class="accordion-body">Crear programación</div>
+                <div class="accordion-body">Agregar equipo</div>
+                <div class="accordion-body">Crear partido</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="fondo-claro accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                  Acondicionamiento fisico
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <a href="{{url('listaperfiles')}}"><div class="accordion-body">Perfiles</div></a>
+                <a href="{{url('vertest')}}"><div class="accordion-body">Test</div></a>
+                <a href="{{url('verplanacondicionamiento')}}"><div class="accordion-body">Plan de acondicionamiento</div></a>
+              </div>
+            </div>
+          </div>
+          <div class="logout text-center">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+          </form>
+          
+          <button type="button" class="btn btn-logout btn-outline-primary" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</button>
+          </div>
+        </div>
+    </div>
 
         
-@foreach ($campeonato as $item)
+{{-- html del contenido de la páginaa --}}
+
+        
+{{-- @foreach ($campeonato as $item)
     <div class="tabla-principal container mt-3">
       <div class="row-tabla row ">
         <div class="col-tabla col-md-6 text-center align-items-center">{{$item->nombre}}</div>
@@ -115,7 +117,55 @@
   <div class="col-tabla col-2 text-center align-items-center"><a href="{{url('eliminarcampeonato')}}"><button type="button" class="btn btn-logout btn-outline-primary">Eliminar</button></a></div>
 </div>
 </div>
-@endforeach
+@endforeach --}}
+
+<div class="container-fluid">
+  <h1 class="text-center">Campeonatos</h1>
+  <a href="{{url('crearcampeonato')}}"><button type="button" class="btn btn-logout btn-outline-primary">Crear campeonato</button></a>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">nombre</th>
+          <th scope="col">modo</th>
+          <th scope="col">categoria</th>
+          <th scope="col">direccion</th>
+          <th scope="col">cantidad de equipos</th>
+          <th scope="col">precio inscripcion</th>
+          <th scope="col">valor de premiacion</th>
+          <th scope="col">descripcion</th>
+          <th scope="col">editar</th>
+          <th scope="col">eliminar</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+      @foreach ($campeonato as $item)
+
+
+        <tr>
+          <td>{{$item->nombre}}</td>
+          <td>{{$item->modo}}</td>
+          <td>{{$item->categoria}}</td>
+          <td>{{$item->direccion}}</td>
+          <td>{{$item->cantidad_equipos}}</td>
+          <td>{{$item->precio_inscripcion}}</td>
+          <td>{{$item->valor_premiacion}}</td>
+          <td>{{$item->descripcion}}</td>
+          <td><a href="{{ route('campeonato.edit', ['id_campeonato' => $item->id_campeonato]) }}"><button type="button" class="btn btn-logout btn-outline-primary">Editar</button></a></td>
+          <td><form action="{{ route('campeonato.delete', ['id_campeonato' => $item->id_campeonato]) }}" method="post">
+  @method("delete")
+  @csrf
+  <button type="submit" class="btn btn-logout btn-outline-primary">Eliminar</button>
+</form></td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
+</div>
+
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
